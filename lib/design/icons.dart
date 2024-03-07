@@ -6,3 +6,6 @@ final emailIcon = SvgPicture.asset('assets/icons/email.svg');
 final castleImage = SvgPicture.asset('assets/icons/castle.svg');
 
 final menuIcon = SvgPicture.asset('assets/icons/menu.svg');
+
+final googleIcon = SvgPicture.asset('assets/icons/google_icon.svg');
+
