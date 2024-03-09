@@ -15,3 +15,7 @@ const containerSignUpIn = Color(0xFF191919);
 const cardColor1 = Color(0xFFEF8C75);
 
 const cardColor2 = Color(0xFFF6C6BB);
+
+const borderUpDown = Color(0x500585CE);
+
+const containerUpDowm = Color(0xFF399DDC);

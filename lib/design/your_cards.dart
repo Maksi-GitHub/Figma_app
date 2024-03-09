@@ -28,3 +28,14 @@ const List yourCard = [
   "dateCard": "14/24"
   }
 ];
+
+const List incomeSpending = [
+  {
+    "income": "\$2.000.66",
+    "spending": "\$3.333.44"
+  },
+  {
+    "income": "\$232423",
+    "spending": "\$341234"
+  },
+];
