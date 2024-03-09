@@ -13,7 +13,14 @@ class YourCard extends StatefulWidget {
 }
 
 class _YourCardState extends State<YourCard> {
-  final _controller = PageController();
+  PageController _pageController = PageController();
+  int _currentPageIndex = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +53,13 @@ class _YourCardState extends State<YourCard> {
             height: 236,
             width: 419,
             child: PageView(
-                controller: _controller,
+                controller: _pageController,
                 scrollDirection: Axis.horizontal,
+                onPageChanged: (int index) {
+                  setState(() {
+                    _currentPageIndex = index;
+                  });
+                },
                 children: List.generate(yourCard.length, (index) {
                   return Center(
                     child: Stack(
@@ -131,7 +143,7 @@ class _YourCardState extends State<YourCard> {
                 })),
           ),
           SmoothPageIndicator(
-            controller: _controller,
+            controller: _pageController,
             count: 4,
             effect: ScaleEffect(
                 activeDotColor: primaryColor,
@@ -172,22 +184,22 @@ class _YourCardState extends State<YourCard> {
                             height: 10,
                           ),
                           Container(
-                            margin: const EdgeInsets.only(right: 20),
+                            margin: const EdgeInsets.only(right: 20, top: 5),
                             child: Text(
                               'Income',
                               style: GoogleFonts.inter(
                                   textStyle: const TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 10,
                                       color: textColor,
                                       fontWeight: FontWeight.w500)),
                             ),
                           ),
                           Container(
                             margin: const EdgeInsets.only(left: 5),
-                            child: Text(incomeSpending[0]['income'],
+                            child: Text(incomeSpending[_currentPageIndex]['income'],
                                 style: GoogleFonts.inter(
                                     textStyle: const TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                         color: textColor,
                                         fontWeight: FontWeight.w700))),
                           ),
@@ -218,7 +230,7 @@ class _YourCardState extends State<YourCard> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(14),
-                            child: upArrow,
+                            child: downArrow,
                           ),
                         ),
                       ),
@@ -229,22 +241,22 @@ class _YourCardState extends State<YourCard> {
                             height: 10,
                           ),
                           Container(
-                            margin: const EdgeInsets.only(right: 20),
+                            margin: const EdgeInsets.only(right: 10, top: 5),
                             child: Text(
-                              'Income',
+                              'Spending',
                               style: GoogleFonts.inter(
                                   textStyle: const TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 10,
                                       color: textColor,
                                       fontWeight: FontWeight.w500)),
                             ),
                           ),
                           Container(
                             margin: const EdgeInsets.only(left: 5),
-                            child: Text(incomeSpending[0]['spending'],
+                            child: Text(incomeSpending[_currentPageIndex]['spending'],
                                 style: GoogleFonts.inter(
                                     textStyle: const TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                         color: textColor,
                                         fontWeight: FontWeight.w700))),
                           ),
@@ -255,6 +267,26 @@ class _YourCardState extends State<YourCard> {
                 ),
               )
             ],
+          ),
+          const SizedBox(height: 25,),
+          Container(
+            height: 400,
+            width: double.infinity,
+            decoration: BoxDecoration(color: Colors.red,
+            borderRadius: BorderRadius.circular(30)),
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.bottomLeft,
+                  margin: EdgeInsets.only(left: 20, top: 20),
+                  child: Text('Transaction', style: GoogleFonts.inter(
+                                      textStyle: const TextStyle(
+                                          fontSize: 20,
+                                          color: textColor,
+                                          fontWeight: FontWeight.w600))),
+                )
+              ],
+            ),
           )
         ],
       ),

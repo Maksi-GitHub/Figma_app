@@ -31,11 +31,19 @@ const List yourCard = [
 
 const List incomeSpending = [
   {
-    "income": "\$2.000.66",
-    "spending": "\$3.333.44"
+    "income": "\$9.999.99",
+    "spending": "\$2.222.22"
   },
   {
-    "income": "\$232423",
-    "spending": "\$341234"
+    "income": "\$3.333.33",
+    "spending": "\$4.444.44"
+  },
+  {
+    "income": "\$5.555.55",
+    "spending": "\$6.666.66"
+  },
+  {
+    "income": "\$7.777.77",
+    "spending": "\$8.888.88"
   },
 ];
