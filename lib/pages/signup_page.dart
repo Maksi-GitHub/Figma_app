@@ -163,7 +163,7 @@ class SignUpPage extends StatelessWidget {
                           style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                   fontSize: 12,
-                                  color: primaryColor,
+                                  color: sign,
                                   fontWeight: FontWeight.w400)),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {

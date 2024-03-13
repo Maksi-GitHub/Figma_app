@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_figma/design/color.dart';
 import 'package:flutter_app_figma/design/icons.dart';
+import 'package:flutter_app_figma/pages/signup_page.dart';
 import 'package:flutter_app_figma/pages/your_card_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -171,11 +172,15 @@ class SignInPage extends StatelessWidget {
                           style: GoogleFonts.inter(
                               textStyle: const TextStyle(
                                   fontSize: 12,
-                                  color: primaryColor,
+                                  color: sign,
                                   fontWeight: FontWeight.w400)),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pop(context);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignUpPage()));
                             }),
                     ]),
                   ),

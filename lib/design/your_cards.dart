@@ -47,3 +47,49 @@ const List incomeSpending = [
     "spending": "\$8.888.88"
   },
 ];
+
+const List spending = [
+  {
+    "nameSpending": "Name Spending",
+    "dateSpending": "05 August, 10:00AM",
+    "spending": "-\$531"
+  },
+  {
+    "nameSpending": "Name Spending",
+    "dateSpending": "12 August, 02:00AM",
+    "spending": "-\$24"
+  },
+  {
+    "nameSpending": "Name Spending",
+    "dateSpending": "20 August, 12:00AM",
+    "spending": "-\$104"
+  },
+  {
+    "nameSpending": "Name Spending",
+    "dateSpending": "02 August, 02:01AM",
+    "spending": "-\$31"
+  },
+];
+
+const List income = [
+  {
+    "nameIncome": "Name Income",
+    "dateIncome": "09 August, 03:30AM",
+    "income": "+\$14"
+  },
+    {
+    "nameIncome": "Name Income",
+    "dateIncome": "10 August, 11:30AM",
+    "income": "+\$200"
+  },
+    {
+    "nameIncome": "Name Income",
+    "dateIncome": "29 August, 01:07AM",
+    "income": "+\$24"
+  },
+    {
+    "nameIncome": "Name Income",
+    "dateIncome": "13 August, 10:00AM",
+    "income": "+\$53"
+  },
+];
