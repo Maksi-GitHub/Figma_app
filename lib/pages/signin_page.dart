@@ -114,7 +114,7 @@ class SignInPage extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Sign up',
+                      'Sign in',
                       style: GoogleFonts.inter(
                           textStyle: const TextStyle(
                               fontSize: 15,
