@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_figma/bottom_nav_bar.dart';
 import 'package:flutter_app_figma/design/color.dart';
 import 'package:flutter_app_figma/design/icons.dart';
 import 'package:flutter_app_figma/design/your_cards.dart';
 import 'package:flutter_app_figma/pages/income_speding_page.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -28,6 +30,7 @@ class _YourCardState extends State<YourCard> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: backgroundColor,
         automaticallyImplyLeading: false,
         title: Padding(
@@ -54,98 +57,114 @@ class _YourCardState extends State<YourCard> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 236,
-                  width: 419,
-                  child: PageView(
-                      controller: _pageController,
-                      scrollDirection: Axis.horizontal,
-                      onPageChanged: (int index) {
-                        setState(() {
-                          _currentPageIndex = index;
-                        });
-                      },
-                      children: List.generate(yourCard.length, (index) {
-                        return Center(
-                          child: Stack(
-                            children: <Widget>[
-                              Image(image: AssetImage(yourCard[index]['card'])),
-                              Positioned(
-                                top: 25,
-                                left: 30,
-                                child: Text(
-                                  yourCard[index]['nameCard'],
-                                  style: GoogleFonts.inter(
-                                    textStyle: const TextStyle(
-                                        fontSize: 20,
-                                        color: textColor2,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
+                    height: 250,
+                    child: PageView(
+                        controller: _pageController,
+                        scrollDirection: Axis.horizontal,
+                        onPageChanged: (int index) {
+                          setState(() {
+                            _currentPageIndex = index;
+                          });
+                        },
+                        children: [
+                          CreditCardWidget(
+                            glassmorphismConfig: Glassmorphism(
+                              blurX: 5.0,
+                              blurY: 5.0,
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[
+                                  spendingColor,
+                                  incomeColor,
+                                ],
+                                stops: <double>[
+                                  0.5,
+                                  1,
+                                ],
                               ),
-                              Positioned(
-                                top: 120,
-                                left: 75,
-                                child: Text(
-                                  yourCard[index]['numberCard'],
-                                  style: GoogleFonts.inter(
-                                    textStyle: const TextStyle(
-                                        fontSize: 20,
-                                        color: textColor2,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                top: 180,
-                                left: 50,
-                                child: Column(
-                                  children: [
-                                    Text('CARD HOLDER',
-                                        style: GoogleFonts.inter(
-                                            textStyle: const TextStyle(
-                                                fontSize: 8,
-                                                color: textColor2,
-                                                fontWeight: FontWeight.w400))),
-                                    Text(
-                                      yourCard[index]['nameUser'],
-                                      style: GoogleFonts.inter(
-                                        textStyle: const TextStyle(
-                                            fontSize: 10,
-                                            color: textColor2,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Positioned(
-                                top: 180,
-                                right: 60,
-                                child: Column(
-                                  children: [
-                                    Text('EXPIRED',
-                                        style: GoogleFonts.inter(
-                                            textStyle: const TextStyle(
-                                                fontSize: 8,
-                                                color: textColor2,
-                                                fontWeight: FontWeight.w400))),
-                                    Text(
-                                      yourCard[index]['dateCard'],
-                                      style: GoogleFonts.inter(
-                                        textStyle: const TextStyle(
-                                            fontSize: 10,
-                                            color: textColor2,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                            ),
+                            cardNumber: '',
+                            expiryDate: '',
+                            cardHolderName: '',
+                            cvvCode: '',
+                            showBackView: false,
+                            onCreditCardWidgetChange: (CreditCardBrand) {},
                           ),
-                        );
-                      })),
-                ),
+                          CreditCardWidget(
+                            glassmorphismConfig: Glassmorphism(
+                              blurX: 5.0,
+                              blurY: 5.0,
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[
+                                  Colors.black,
+                                  Colors.white,
+                                ],
+                                stops: <double>[
+                                  0.3,
+                                  1,
+                                ],
+                              ),
+                            ),
+                            cardNumber: '',
+                            expiryDate: '',
+                            cardHolderName: '',
+                            cvvCode: '',
+                            showBackView: false,
+                            onCreditCardWidgetChange: (CreditCardBrand) {},
+                          ),
+                          CreditCardWidget(
+                            glassmorphismConfig: Glassmorphism(
+                              blurX: 5.0,
+                              blurY: 5.0,
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[
+                                  Colors.green,
+                                  Colors.yellow,
+                                ],
+                                stops: <double>[
+                                  0.5,
+                                  1,
+                                ],
+                              ),
+                            ),
+                            cardNumber: '',
+                            expiryDate: '',
+                            cardHolderName: '',
+                            cvvCode: '',
+                            showBackView: false,
+                            onCreditCardWidgetChange: (CreditCardBrand) {},
+                          ),
+                          CreditCardWidget(
+                            glassmorphismConfig: Glassmorphism(
+                              blurX: 5.0,
+                              blurY: 5.0,
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[
+                                  Colors.pink,
+                                  Colors.purple,
+                                ],
+                                stops: <double>[
+                                  0.5,
+                                  1,
+                                ],
+                              ),
+                            ),
+                            cardNumber: '',
+                            expiryDate: '',
+                            cardHolderName: '',
+                            cvvCode: '',
+                            showBackView: false,
+                            onCreditCardWidgetChange: (CreditCardBrand) {},
+                          )
+                        ])
+                        ),
                 SmoothPageIndicator(
                   controller: _pageController,
                   count: 4,
@@ -566,64 +585,10 @@ class _YourCardState extends State<YourCard> {
               ],
             ),
           ),
-          Positioned(
-            bottom: 15,
-            left: 45.5,
-            right: 45.5,
-            child: SizedBox(
-              height: 74,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60),
-                  color: backgroundColor,
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      margin:
-                          const EdgeInsets.only(left: 40, top: 25, bottom: 25),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: home,
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(
-                                left: 10, top: 2, bottom: 2),
-                            child: Text('Home',
-                                style: GoogleFonts.inter(
-                                    textStyle: const TextStyle(
-                                        fontSize: 14,
-                                        color: incomeColor,
-                                        fontWeight: FontWeight.w500))),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                          left: 35, top: 25, bottom: 22.59),
-                      child: search,
-                    ),
-                    Container(
-                      margin:
-                          const EdgeInsets.only(left: 35, top: 25, bottom: 25),
-                      child: bell,
-                    ),
-                    Container(
-                      margin:
-                          const EdgeInsets.only(left: 35, top: 25, bottom: 25),
-                      child: user,
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
         ],
       ),
+      //bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
-
-
+  

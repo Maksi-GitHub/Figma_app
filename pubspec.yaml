@@ -40,6 +40,9 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.3
+  flutter_credit_card: ^4.0.1
+  blurrycontainer: ^1.0.2
+  persistent_bottom_nav_bar: ^5.0.2
 
 
 dev_dependencies:

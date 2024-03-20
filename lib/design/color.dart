@@ -23,3 +23,7 @@ const containerTransaction = Color(0xFFF7FAFC);
 const spendingColor = Color(0xFFFF2455);
 
 const incomeColor = Color(0xFF2979F2);
+
+const activeColorPrimary = Color(0xFF2979F2);
+
+const inactiveColorPrimary = Color(0xFF9EA2BE);
